@@ -1,14 +1,17 @@
 import "./App.css";
+import Navbar from "./Navbar";
+import Home from "./Home";
 
 function App() {
-  const title = "Hello World";
-  var likes = 10;
-  var person = { name: "John", age: 25 };
-  var link = "https://www.facebook.com";
+  // const title = "Hello World";
+  // var likes = 10;
+  // var person = { name: "John", age: 25 };
+  // var link = "https://www.facebook.com";
   return (
     <div className="App">
+      <Navbar />
       <div className="content">
-        <h1>app component</h1>
+        <Home />
         {/* <h2>{title}</h2>
         <p>you have {likes} likes</p>
         <p>
