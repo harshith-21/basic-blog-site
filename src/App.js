@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
+  const title = "Hello World";
+  var likes = 10;
+  var person = { name: "John", age: 25 };
+  var link = "https://www.facebook.com";
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div className="content">
+        <h1>app component</h1>
+        {/* <h2>{title}</h2>
+        <p>you have {likes} likes</p>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {person.name} is {person.age} years old
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p> {"hello there"} </p>
+        <p>8639933234</p>
+        <p>hello there</p>
+        <p>{[1, 2, 3, 4, 5, 6, 7, 8]}</p>
+        <p>this is a random number {Math.round(Math.random() * 10)}</p>
+        <a href="http://www.google.com">google</a>
+        <hr />
+        <a href={link}>facebook</a> */}
+      </div>
     </div>
   );
 }
