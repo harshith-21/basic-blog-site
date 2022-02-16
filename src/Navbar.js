@@ -1,5 +1,5 @@
 // sfc for a arrow funtion
-const navbar = () => {
+const Navbar = () => {
   return (
     <nav className="navbar">
       <h1>bloooooooog</h1>
@@ -11,4 +11,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;
