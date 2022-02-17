@@ -18,8 +18,9 @@ const useFetch = (url) => {
     //       setIsPending(false);
     //     });
     // }, 1000);
+    const abortCont = new AbortController();
     //! same as above without 1000ms waiting
-    fetch(url) //change the end point in the server i.e after 8000/ for example put 8000/blogss server will recieve request but cant find the file because the endpoint doesnt exist
+    fetch(url, { signal: abortCont.signal }) //change the end point in the server i.e after 8000/ for example put 8000/blogss server will recieve request but cant find the file because the endpoint doesnt exist
       .then((res) => {
         if (!res.ok) {
           throw Error("could not fetch the data for that resource");
@@ -35,15 +36,21 @@ const useFetch = (url) => {
         setError(null);
       })
       .catch((err) => {
-        console.log(err.message);
-        setIsPending(false);
-        setError(err.message);
+        if (err.name === "AbortError") {
+          console.log("fetch aborted");
+        }
+        // console.log(err.message);
+        else {
+          setIsPending(false);
+          setError(err.message);
+        }
       });
     //!checks whether fetched or not i.e connected to server or not... most probably connection error (wont catch errors from server like empty data or server error)
 
     // console.log("use effect run");
     // console.log(blogs);
     // console.log(name);
+    return () => abortCont.abort();
   }, [url]); //this empty array(name is not there) is the second argument of useEffect and it makes useeffect run only once
   //*when ever url changes its gonna run again
   return { data, isPending, error };
