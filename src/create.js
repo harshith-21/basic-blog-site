@@ -4,11 +4,29 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
+  const [isPending, setIsPending] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); //& when generally submitted form, it will refresh the page but this will prevent it.comment this line to see the world burn hahha
+    const blog = { title, body, author };
+
+    setIsPending(true);
+
+    // console.log(blog);
+    fetch("http://localhost:8000/blogs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(blog),
+    }).then(() => {
+      console.log("new blog added");
+      setIsPending(false);
+    });
+  };
 
   return (
     <div className="create">
       <h2>add a New Blog</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Blog Title:</label>
         <input
           type="text"
@@ -34,10 +52,11 @@ const Create = () => {
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         /> */}
-        <button>Add blog</button>
-        <p>{title}</p>
+        {!isPending && <button>Add blog</button>}
+        {isPending && <button disabled>Adding...</button>}
+        {/* <p>{title}</p>
         <p>{body}</p>
-        <p>{author}</p>
+        <p>{author}</p> */}
       </form>
     </div>
   );
