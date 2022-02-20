@@ -2,7 +2,7 @@
   "blogs": [
     {
       "title": "My First Blog",
-      "content": "This is my first blog post",
+      "content": "This is my first blog post ",
       "author": "John Doe",
       "id": "1"
     },
