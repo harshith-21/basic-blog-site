@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
   const [isPending, setIsPending] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault(); //& when generally submitted form, it will refresh the page but this will prevent it.comment this line to see the world burn hahha
@@ -20,6 +22,8 @@ const Create = () => {
     }).then(() => {
       console.log("new blog added");
       setIsPending(false);
+      // history.go(-1);  //!sends you back where u came from...jus like back button od browser
+      history.push("/"); //!route for home
     });
   };
 
