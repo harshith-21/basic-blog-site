@@ -1,3 +1,38 @@
+## **IMPORTANT**
+
+FOR THIS APP TO WORK, YOU NEED TWO SERVICES UP AND RUNNNING
+
+1. WEBAPP
+2. PSUDO DATABASE
+
+for database service to start, hit this command
+```sh
+npx json-server --watch .\data\db.json --port 8000
+```
+for web app to start, hit this command
+```sh
+npm start
+```
+> DO THIS IN SEPERATE TERMINALS OR ( MAYBE IN DETACHED MODE ), THE APP SHOULD BE UP AND RUNNNING.
+
+---
+---
+---
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 If you select a block of code and use the key sequence Ctrl+K+C, you'll comment out the section of code. Ctrl+K+U will uncomment the code
 
 # Getting Started with Create React App
